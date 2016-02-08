@@ -12,7 +12,7 @@ function main() {
         if (value.level) tempX.push(value.level);
         if (value.rarity) tempX.push(value.rarity);
         if (value.description) tempY.push(value.description);
-        if (value.recipe && value.recipe.name) tempX.push(value.recipe.name);
+        if (value.recipe && value.recipe.name) tempY.push(value.recipe.name);
         tempX = tempX.join(' ').toUpperCase();
         tempY = tempY.join(' ').toUpperCase();
         local.array_backup.push({
@@ -78,7 +78,11 @@ function updatePage(e) {
             } else return false;
         });
         local.array.sort(function (a, b) {
-            return a.rank- b.rank;
+            if (a.rank == b.rank){
+                if (a.name > b.name) return 1;
+                if (a.name < b.name) return -1;
+                else return 0;
+            } else return a.rank- b.rank;
         })
 
     } else {
