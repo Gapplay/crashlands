@@ -6,37 +6,43 @@ function main() {
     var temp = {};
     var local = $master.local;
     $.each($master.api.item, function (key, value) {
-        var tempX = [];
+        var tempX = [],tempY=[];
         tempX.push(key);
         if (value.type) tempX.push(value.type);
         if (value.level) tempX.push(value.level);
         if (value.rarity) tempX.push(value.rarity);
+        if (value.description) tempY.push(value.description);
         if (value.recipe && value.recipe.name) tempX.push(value.recipe.name);
         tempX = tempX.join(' ').toUpperCase();
+        tempY = tempY.join(' ').toUpperCase();
         local.array_backup.push({
             name: key,
             type: 'item',
-            optional: tempX
+            optional: tempX,
+            optional2: tempY
         });
     });
     $.each($master.api.creature, function (key, value) {
-        var tempX = [];
+        var tempX = [],tempY=[];
         tempX.push('creature');
         tempX.push('pet');
         tempX.push('monster');
         tempX.push('moob');
         tempX.push(key);
-        tempX.push(name[0]);
-        tempX.push(name[1]);
-        tempX.push(name[2]);
-        tempX.push(name[3]);
-        tempX.push(name[4]);
-        tempX.push(name[5]);
+        tempX.push(value.name[0]);
+        tempX.push(value.name[1]);
+        tempX.push(value.name[2]);
+        tempX.push(value.name[3]);
+        tempX.push(value.name[4]);
+        tempX.push(value.name[5]);
+        if (value.description) tempY.push(value.description);
         tempX = tempX.join(' ').toUpperCase();
+        tempY = tempY.join(' ').toUpperCase();
         local.array_backup.push({
             name: key,
             type: 'creature',
-            optional: tempX
+            optional: tempX,
+            optional2: tempY
         });
     });
     local.array_backup.sort(function (a, b) {
@@ -63,8 +69,18 @@ function updatePage(e) {
     local.page = 0;
     if (temp.strS != '' && temp.strS != ' ') {
         local.array = local.array_backup.filter(function (value) {
-            return value.optional.match(temp.strS);
+            if (value.optional.match(temp.strS)){
+                value.rank = 1;
+                return true;
+            } else if (value.optional2.match(temp.strS)){
+                value.rank = 2;
+                return true;
+            } else return false;
         });
+        local.array.sort(function (a, b) {
+            return a.rank- b.rank;
+        })
+
     } else {
         local.array = local.array_backup.slice();
     }
