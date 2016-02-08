@@ -1,0 +1,220 @@
+
+
+body {
+    font-family: "Trebuchet MS",Helvetica,Arial,sans-serif;
+    color: #dfdfdf;
+    background-color: #333333;
+    text-shadow: .1em .1em .2em #000;
+}
+a {
+    color: #59A3E2;
+    cursor: pointer;
+}
+a:hover,a:focus {
+    color: #437baa;
+}
+#main-search{
+    padding: 10px 20px;
+}
+#main-container{
+    max-width: 600px;
+}
+#main-footer>p{
+    text-align: center;
+    padding: 10px 10px;
+    font-size: 12px;
+    font-style: italic;
+    color: #A5C8DE;
+}
+#main-head{
+    text-align: center;
+}
+.btn-gap {
+    padding: 5px 0;
+}
+#main-head>img{
+    width: 100%;
+    max-width: 342px;
+}
+.icon-result{
+    background: radial-gradient(rgba(86, 86, 86, 0.45),rgba(27, 27, 27, 0));
+    border: 1px solid rgba(16, 16, 16, 0.46);
+    border-radius: 5px;
+    height: 128px;
+    width: 128px;
+    padding: 10px;
+    cursor: pointer;
+}
+.width-100{
+    width: 100%;
+}
+
+.result .td-title{
+    text-align: left;
+    padding-left: 5px;
+    font-size: 25px;
+    vertical-align: bottom;
+}
+
+.descr-opt{
+    font-size: 13px;
+    font-weight: bold;
+    color: #EFF193;
+}
+.result .td-descr{
+    text-align: left;
+    font-size: 14px;
+    padding: 0 10px;
+    vertical-align: top;
+    color: #C1C1C1;
+}
+.td-img img{
+    cursor: pointer;
+}
+.result .td-img{
+    width: 140px;
+    padding: 5px 6px;
+}
+.item-page{
+    padding: 5px 10px;
+    text-align: center;
+}
+.p-head{
+    font-size: 22px;
+}
+.p-descr{
+    font-size: 14px;
+    padding: 0 10px;
+    color: #C7C7C7;
+}
+.p-r-rname{
+    padding-top: 12px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #AEF750;
+}
+.p-r-name{
+    /*color: #36A908;*/
+    font-size: 16px;
+}
+.p-r-iname{
+    color: #98DE8C;
+}
+.p-r-img{
+    cursor: pointer;
+}
+.p-opt{
+    font-weight: bold;
+    color: #F0F537;
+    font-size: 13px;
+}
+.p-i-icon{
+    background: radial-gradient(rgba(86, 86, 86, 0.45),rgba(27, 27, 27, 0));
+    border: 1px solid rgba(16, 16, 16, 0.46);
+    border-radius: 5px;
+    height: 60px;
+    width: 60px;
+    padding: 2px;
+}
+.p-i-minicon{
+    height: 30px;
+    width: 30px;
+}
+.p-r-icon img {
+    height: 100px;
+    width: 100px;
+}
+.p-drop> table{
+    min-width: 200px;
+    margin: 0 auto;
+}
+.p-drop .td-title{
+    text-align: left;
+    padding-left: 5px;
+    font-size: 18px;
+}
+.p-drop .td-img{
+    width: 70px;
+    padding: 5px;
+}
+
+
+.p-ingredient .td-title{
+    text-align: left;
+    padding-left: 5px;
+    font-size: 18px;
+    vertical-align: bottom;
+}
+
+.p-ingredient .td-descr{
+    text-align: left;
+    font-size: 13px;
+    font-style: italic;
+    padding: 0 8px;
+    vertical-align: top;
+    color: #D5DCA6;
+}
+.p-ingredient .td-img{
+    width: 70px;
+    padding: 5px;
+}
+.form-control {
+    color: #ddd;
+    background-color: #3E3E3E;
+    border: 1px solid #525252;
+}
+.btn-default {
+    color: #ddd;
+    background-color: #2D2D2D;
+    border-color: #525252;
+}
+.rarity-Legendary,.rarity-Legendary:focus,.rarity-Legendary:hover{
+    color: #e69915;
+    cursor: pointer;
+}
+.rarity-Epic,.rarity-Epic:focus,.rarity-Epic:hover{
+    color: #9C24E6;
+    cursor: pointer;
+}
+.rarity-Superior,.rarity-Superior:focus,.rarity-Superior:hover{
+    color: #7792F7;
+    cursor: pointer;
+}
+.rarity-Good,.rarity-Good:focus,.rarity-Good:hover{
+    color: #23e61c;
+    cursor: pointer;
+}
+.rarity-Normal,.rarity-Normal:focus,.rarity-Normal:hover,.rarity-Random,.rarity-Random:focus,.rarity-Random:hover{
+    color: #dddddd;
+    cursor: pointer;
+}
+.btn-default:focus,
+.btn-default:hover {
+    color: #ddd;
+    background-color: #801515;
+    border-color: #525252;
+}
+
+.btn-default.active.focus,
+.btn-default.active:focus,
+.btn-default.active:hover,
+
+.btn-default:active.focus,
+.btn-default:active:focus,
+.btn-default:active:hover,
+.open>.dropdown-toggle.btn-default.focus,
+.open>.dropdown-toggle.btn-default:focus,
+.open>.dropdown-toggle.btn-default:hover {
+    color: #ddd;
+    background-color: #801515;
+    border-color: #525252;
+}
+.btn-default.active, .btn-default:active, .open>.dropdown-toggle.btn-default {
+    color: #444444;
+    background-color: #ADADAD;
+    border-color: #525252;
+}
+.btn.disabled, .btn[disabled], fieldset[disabled] .btn {
+    filter: alpha(opacity=40);
+    opacity: .40;
+}
