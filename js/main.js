@@ -2,6 +2,10 @@ $(function () {
     main();
     //arun.add_icon($master);
 });
+const baseUrl = '/img/';
+const baseCreature = baseUrl + 'creature/';
+const baseItem = baseUrl + 'item/';
+
 function main() {
     var temp = {};
     var local = $master.local;
@@ -110,7 +114,7 @@ function createPage(type, subtype) {
             if (value.type === 'item') {
                 tempX.onClick = 'onclick="createPage(\'item\',\'' + $obj.name + '\')"';
                 tempX.img = '<img class="icon-result"  ' + tempX.onClick +
-                    ' src="https://googledrive.com/host/0B8N-fnvaFrljQVRkbTFvbkRCUlk/' + $obj.icon + '">';
+                    ' src="' + baseItem + $obj.icon + '">';
                 tempX.name = '<a class="rarity-' + $obj.rarity + '" ' + tempX.onClick + '>' + $obj.name + '</a>';
                 tempX.opt = [];
                 if ($obj.type) tempX.opt.push($obj.type);
@@ -132,7 +136,7 @@ function createPage(type, subtype) {
             } else if (value.type === 'creature') {
                 tempX.onClick = 'onclick="createPage(\'creature\',\'' + $obj.type + '\')"';
                 tempX.img = '<img class="icon-result"  ' + tempX.onClick +
-                    ' src="https://googledrive.com/host/0B8N-fnvaFrljQXJ4SnQ1SVZnaVU/' + $obj.icon[2] + '">';
+                    ' src="' + baseCreature + $obj.icon[2] + '">';
                 tempX.name = '<a ' + tempX.onClick + '>' + $obj.type + '</a>';
                 tempX.opt = ['Creature'];
                 tempX.opt = tempX.opt.join(' - ').toUpperCase();
@@ -157,7 +161,7 @@ function createPage(type, subtype) {
     } else if (type === 'creature') {
         var $obj = $master.api.creature[subtype], $obj3;
         temp.name = '<div class="p-head rarity-Good">' + $obj.name[0] + '</div>';
-        temp.img = '<div class="p-img"><img src="https://googledrive.com/host/0B8N-fnvaFrljQXJ4SnQ1SVZnaVU/' +
+        temp.img = '<div class="p-img"><img src="' + baseCreature +
             $obj.icon[2] + '"></div>';
 
         $obj3 = $master.api.item[$obj.stone0];
@@ -166,7 +170,7 @@ function createPage(type, subtype) {
             temp.r_click = 'onclick="createPage(\'item\',\'' + $obj3.name + '\')"';
             temp.cata1 += '<div class="p-r-name"><a class="rarity-' + $obj3.rarity + '" ' + temp.r_click + '>' +
                 'Superior Catalyst: ' + $obj3.name + '</a></div>';
-            temp.cata1 += '<div class="p-r-img"><img src="https://googledrive.com/host/0B8N-fnvaFrljQVRkbTFvbkRCUlk/' +
+            temp.cata1 += '<div class="p-r-img"><img src="' + baseItem +
                 $obj3.icon + '" ' + temp.r_click + '></div>';
         } else {
             temp.cata1 += '<div class="p-r-name">' + $obj.produce + '</div>';
@@ -178,18 +182,18 @@ function createPage(type, subtype) {
             temp.r_click = 'onclick="createPage(\'item\',\'' + $obj3.name + '\')"';
             temp.cata2 += '<div class="p-r-name"><a class="rarity-' + $obj3.rarity + '" ' + temp.r_click + '>' +
                 'Epic Catalyst: ' + $obj3.name + '</a></div>';
-            temp.cata2 += '<div class="p-r-img"><img src="https://googledrive.com/host/0B8N-fnvaFrljQVRkbTFvbkRCUlk/' +
+            temp.cata2 += '<div class="p-r-img"><img src="' + baseItem +
                 $obj3.icon + '" ' + temp.r_click + '></div>';
         } else {
             temp.cata2 += '<div class="p-r-name">' + $obj.produce + '</div>';
         }
 
         temp.name2 = '<div class="p-head rarity-Superior">' + $obj.name[3] + '</div>';
-        temp.img2 = '<div class="p-img"><img src="https://googledrive.com/host/0B8N-fnvaFrljQXJ4SnQ1SVZnaVU/' +
+        temp.img2 = '<div class="p-img"><img src="' + baseCreature +
             $obj.icon[4] + '"></div>';
 
         temp.name3 = '<div class="p-head rarity-Epic">' + $obj.name[5] + '</div>';
-        temp.img3 = '<div class="p-img"><img src="https://googledrive.com/host/0B8N-fnvaFrljQXJ4SnQ1SVZnaVU/' +
+        temp.img3 = '<div class="p-img"><img src="' + baseCreature +
             $obj.icon[5] + '"></div>';
 
         temp.descr = '<div class="p-descr">' + $obj.description + '</div>';
@@ -200,7 +204,7 @@ function createPage(type, subtype) {
             temp.r_click = 'onclick="createPage(\'item\',\'' + $obj3.name + '\')"';
             temp.recipe += '<div class="p-r-name"><a class="rarity-' + $obj3.rarity + '" ' + temp.r_click + '>' +
                 $obj3.name + '</a></div>';
-            temp.recipe += '<div class="p-r-img"><img src="https://googledrive.com/host/0B8N-fnvaFrljQVRkbTFvbkRCUlk/' +
+            temp.recipe += '<div class="p-r-img"><img src="' + baseItem +
                 $obj3.icon + '" ' + temp.r_click + '></div>';
         } else {
             temp.recipe += '<div class="p-r-name">' + $obj.produce + '</div>';
@@ -215,7 +219,7 @@ function createPage(type, subtype) {
                 var $obj2 = $master.api.item[value];
                 tempX.onClick = 'onclick="createPage(\'item\',\'' + $obj2.name + '\')"';
                 tempX.img = '<img class="p-i-icon"  ' + tempX.onClick +
-                    ' src="https://googledrive.com/host/0B8N-fnvaFrljQVRkbTFvbkRCUlk/' + $obj2.icon + '">';
+                    ' src="' + baseItem + $obj2.icon + '">';
                 tempX.name = '<a class="rarity-' + $obj2.rarity + '" ' + tempX.onClick + '>' + $obj2.name + '</a>';
                 tempX.base = '<div class="p-drop"><table><tbody>' +
                     '<tr>' +
@@ -237,7 +241,7 @@ function createPage(type, subtype) {
     } else if (type === 'item') {
         var $obj = $master.api.item[subtype], $obj3;
         temp.name = '<div class="p-head rarity-' + $obj.rarity + '">' + $obj.name + '</div>';
-        temp.img = '<div class="p-img"><img src="https://googledrive.com/host/0B8N-fnvaFrljQVRkbTFvbkRCUlk/' +
+        temp.img = '<div class="p-img"><img src="' + baseItem +
             $obj.icon + '"></div>';
         temp.descr = '<div class="p-descr">' + $obj.description + '</div>';
         temp.opt = [];
@@ -259,7 +263,7 @@ function createPage(type, subtype) {
                     temp.r_click = 'onclick="createPage(\'creature\',\'' + $obj3.type + '\')"';
                     temp.recipe += '<div class="p-r-name"><a ' + temp.r_click + '>' +
                         $recipe.name + ' (' + $recipe.type + ')</a></div>';
-                    temp.recipe += '<div class="p-r-img"><img src="https://googledrive.com/host/0B8N-fnvaFrljQXJ4SnQ1SVZnaVU/' +
+                    temp.recipe += '<div class="p-r-img"><img src="' + baseCreature +
                         $obj3.icon[2] + '" ' + temp.r_click + '></div>';
                 } else {
                     temp.recipe += '<div class="p-r-name">' + $recipe.name + ' (' + $recipe.type + ')</div>';
@@ -270,7 +274,7 @@ function createPage(type, subtype) {
                     temp.r_click = 'onclick="createPage(\'item\',\'' + $obj3.name + '\')"';
                     temp.recipe += '<div class="p-r-name"><a class="rarity-' + $obj3.rarity + '" ' + temp.r_click + '>' +
                         $recipe.name + ' (' + $recipe.type + ')</a></div>';
-                    temp.recipe += '<div class="p-r-img"><img src="https://googledrive.com/host/0B8N-fnvaFrljQVRkbTFvbkRCUlk/' +
+                    temp.recipe += '<div class="p-r-img"><img src="' + baseItem +
                         $obj3.icon + '" ' + temp.r_click + '></div>';
                 } else {
                     temp.recipe += '<div class="p-r-name">' + $recipe.name + ' (' + $recipe.type + ')</div>';
@@ -283,7 +287,7 @@ function createPage(type, subtype) {
                 var $obj2 = $master.api.item[value.name], $obj4;
                 tempX.onClick = 'onclick="createPage(\'item\',\'' + $obj2.name + '\')"';
                 tempX.img = '<img class="p-i-icon"  ' + tempX.onClick +
-                    ' src="https://googledrive.com/host/0B8N-fnvaFrljQVRkbTFvbkRCUlk/' + $obj2.icon + '">';
+                    ' src="' + baseItem + $obj2.icon + '">';
                 tempX.name = '<a class="rarity-' + $obj2.rarity + '" ' + tempX.onClick + '>' +
                     value.qty + 'x ' + $obj2.name + '</a>';
                 tempX.descr = '<p>' + $obj2.description + '</p>';
@@ -293,28 +297,28 @@ function createPage(type, subtype) {
                     if (tempX.objD.subtype === 'craft' && tempX.objD.type === 'item') {
                         tempX.d_onClick = 'onclick="createPage(\'item\',\'' + $obj4.name + '\')"';
                         tempX.d_img = '<img class="p-i-minicon"  ' + tempX.d_onClick +
-                            ' src="https://googledrive.com/host/0B8N-fnvaFrljQVRkbTFvbkRCUlk/' + $obj4.icon + '">';
+                            ' src="' + baseItem + $obj4.icon + '">';
                         tempX.d_name = '<a class="rarity-' + $obj4.rarity + '" ' + tempX.d_onClick + '>' +
                             $obj4.name + ' (' + $obj4.type + ')</a>';
                         tempX.descr = '<p>Crafted by ' + tempX.d_img + tempX.d_name + '</p>';
                     } else if (tempX.objD.subtype === 'craft' && tempX.objD.type === 'creature') {
                         tempX.d_onClick = 'onclick="createPage(\'creature\',\'' + $obj4.type + '\')"';
                         tempX.d_img = '<img class="p-i-minicon"  ' + tempX.d_onClick +
-                            ' src="https://googledrive.com/host/0B8N-fnvaFrljQXJ4SnQ1SVZnaVU/' + $obj4.icon[2] + '">';
+                            ' src="' + baseCreature + $obj4.icon[2] + '">';
                         tempX.d_name = '<a ' + tempX.d_onClick + '>' +
                             $obj4.name[0] + ' (Pet)</a>';
                         tempX.descr = '<p>Crafted by ' + tempX.d_img + tempX.d_name + '</p>';
                     } else if (tempX.objD.subtype === 'drop' && tempX.objD.type === 'item') {
                         tempX.d_onClick = 'onclick="createPage(\'item\',\'' + $obj4.name + '\')"';
                         tempX.d_img = '<img class="p-i-minicon"  ' + tempX.d_onClick +
-                            ' src="https://googledrive.com/host/0B8N-fnvaFrljQVRkbTFvbkRCUlk/' + $obj4.icon + '">';
+                            ' src="' + baseItem + $obj4.icon + '">';
                         tempX.d_name = '<a class="rarity-' + $obj4.rarity + '" ' + tempX.d_onClick + '>' +
                             $obj4.name + ' (' + $obj4.type + ')</a>';
                         tempX.descr = '<p>Dropped by ' + tempX.d_img + tempX.d_name + '</p>';
                     } else if (tempX.objD.subtype === 'drop' && tempX.objD.type === 'creature') {
                         tempX.d_onClick = 'onclick="createPage(\'creature\',\'' + $obj4.type + '\')"';
                         tempX.d_img = '<img class="p-i-minicon"  ' + tempX.d_onClick +
-                            ' src="https://googledrive.com/host/0B8N-fnvaFrljQXJ4SnQ1SVZnaVU/' + $obj4.icon[2] + '">';
+                            ' src="' + baseCreature + $obj4.icon[2] + '">';
                         tempX.d_name = '<a ' + tempX.d_onClick + '>' +
                             $obj4.name[0] + ' (Creature)</a>';
                         tempX.descr = '<p>Dropped by ' + tempX.d_img + tempX.d_name + '</p>';
@@ -344,13 +348,13 @@ function createPage(type, subtype) {
                     temp.dropped_click = 'onclick="createPage(\'creature\',\'' + $obj5.type + '\')"';
                     temp.dropped += '<div class="p-r-name"><a ' + temp.dropped_click + '>' +
                         $obj5.name[0] + ' (Creature)</a></div>';
-                    temp.dropped += '<div class="p-r-img"><img src="https://googledrive.com/host/0B8N-fnvaFrljQXJ4SnQ1SVZnaVU/' +
+                    temp.dropped += '<div class="p-r-img"><img src="' + baseCreature +
                         $obj5.icon[2] + '" ' + temp.dropped_click + '></div>';
                 } else {
                     temp.dropped_click = 'onclick="createPage(\'item\',\'' + $obj5.name + '\')"';
                     temp.dropped += '<div class="p-r-name"><a class="rarity-' + $obj5.rarity + '" ' + temp.dropped_click + '>' +
                         $obj5.name + ' (' + $obj5.type + ')</a></div>';
-                    temp.dropped += '<div class="p-r-img"><img src="https://googledrive.com/host/0B8N-fnvaFrljQVRkbTFvbkRCUlk/' +
+                    temp.dropped += '<div class="p-r-img"><img src="' + baseItem +
                         $obj5.icon + '" ' + temp.dropped_click + '></div>';
                 }
             }
@@ -366,7 +370,7 @@ function createPage(type, subtype) {
                 var $obj2 = $master.api.item[value];
                 tempX.onClick = 'onclick="createPage(\'item\',\'' + $obj2.name + '\')"';
                 tempX.img = '<img class="p-i-icon"  ' + tempX.onClick +
-                    ' src="https://googledrive.com/host/0B8N-fnvaFrljQVRkbTFvbkRCUlk/' + $obj2.icon + '">';
+                    ' src="' + baseItem + $obj2.icon + '">';
                 tempX.name = '<a class="rarity-' + $obj2.rarity + '" ' + tempX.onClick + '>' + $obj2.name + '</a>';
                 tempX.base = '<div class="p-drop"><table><tbody>' +
                     '<tr>' +
