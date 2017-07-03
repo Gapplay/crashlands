@@ -2,7 +2,7 @@ $(function () {
     main();
     //arun.add_icon($master);
 });
-const baseUrl = '/img/';
+const baseUrl = './img/';
 const baseCreature = baseUrl + 'creature/';
 const baseItem = baseUrl + 'item/';
 
